@@ -1,0 +1,11 @@
+<%= form_with model: @spot, url: admin_spots_path, local:true do |f| %>
+  <p>観光地画像</p>
+  <%= f.attachment_field :image %>
+  <p>観光地名</p>
+  <%= f.text_field       :spot_name %>
+  <p>緯度</p>
+  <%= f.text_field       :latitude %>
+  <p>経度</p>
+  <%= f.text_field       :longitude %>
+  <%= f.submit "登録" %>
+<% end %>
