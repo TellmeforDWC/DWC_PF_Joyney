@@ -10,7 +10,7 @@
   </tr>
   <% @spots.each do |spot| %>
   <tr>
-    <td><%= attachment_image_tag spot, :image, size: "100x100", fallback: "no_image.png" %> </td>
+    <td><%= attachment_image_tag spot, :image, class: "image-small", fallback: "no_image.png" %> </td>
     <td>
       <%= link_to edit_admin_spot_path(spot.id) do %>
         <%= spot.spot_name %>
