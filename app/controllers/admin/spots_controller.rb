@@ -2,6 +2,7 @@ class Admin::SpotsController < ApplicationController
 
   def index
     @spots = Spot.all
+    @tags = @spots.tag_counts_on(:tags)
     gon.spot = @spots
   end
 
@@ -20,6 +21,7 @@ class Admin::SpotsController < ApplicationController
 
   def edit
     @spot = Spot.find(params[:id])
+    @tags = @spot.tag_counts_on(:tags)
     gon.spot = @spot
   end
 
@@ -36,7 +38,7 @@ class Admin::SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:spot_name, :image, :longitude, :latitude)
+    params.require(:spot).permit(:spot_name, :image, :longitude, :latitude, :tag_list)
   end
 
 end

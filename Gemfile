@@ -72,4 +72,5 @@ gem 'kaminari','~> 1.2.1'
 gem 'pry-byebug'
 gem 'geocoder'
 gem 'gon'
+gem 'acts-as-taggable-on', '~> 6.0'
 # /追加のgem

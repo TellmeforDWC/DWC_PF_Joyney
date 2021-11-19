@@ -6,6 +6,7 @@
     <th>地名</th>
     <th>緯度</th>
     <th>経度</th>
+    <th>タグ</th>
   </tr>
   <% @spots.each do |spot| %>
   <tr>
@@ -17,6 +18,7 @@
     </td>
     <td><%= spot.latitude %></td>
     <td><%= spot.longitude %></td>
+    <td><%= spot.tag_list %></td>
   </tr>
   <% end %>
 

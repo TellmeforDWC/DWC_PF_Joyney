@@ -8,6 +8,9 @@
   <%= f.text_field       :latitude %>
   <p>経度</p>
   <%= f.text_field       :longitude %>
+  <p>タグ</p>
+  <%= f.text_field :tag_list, value: @spot.tag_list.join(',') %>
+
   <%= f.submit "更新" %>
 <% end %>
 <!--/編集フォーム-->
@@ -27,7 +30,7 @@
 #map{
   flex-basis: 85rem;
   height: 400px;
-  max-width: 70rem;
+  /*max-width: 70rem;*/
   margin: 0.6em 0 0 auto;
 }
 
