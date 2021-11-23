@@ -9,6 +9,8 @@
   </div>
 </div>
 
+<!--<div id="route" style="width: 500px; height: 200px;overflow: scroll"></div>-->
+
 <!--地図表示-->
 
 <div class="map-area">
@@ -46,7 +48,6 @@ function initMap(){
   let latlng = new google.maps.LatLng(43.068661, 141.350755); //緯度経度を指定
 
   // 地図表示{
-  let marker;　//マーカーを設置
 
   let obj = { //地図の表示オプション
     center: latlng,
@@ -56,10 +57,6 @@ function initMap(){
 
   let map = new google.maps.Map(document.getElementById('map'), obj); //地図を設置
 
-  marker = new google.maps.Marker({ //マーカーの作成とオプション
-    position: latlng,
-    map     : map
-  });
   // }地図表示
 
   // 経路表示{
@@ -70,19 +67,27 @@ function initMap(){
   directionsRenderer.setMap(map); //directionsRenderer の結果を地図に表示
   directionsRenderer.setPanel(document.getElementById("sidebar"));
 
-  let start = new google.maps.LatLng(43.068661, 141.350755);                    //出発点の位置（札幌駅）
-  let end   = new google.maps.LatLng(gon.destination.latitude, gon.destination.longitude);    //目的地の位置（選択した観光地）
+  let start = new google.maps.LatLng(43.068661, 141.350755);                               //出発点の位置（札幌駅）
+  let end   = new google.maps.LatLng(gon.destination.latitude, gon.destination.longitude); //目的地の位置（選択した観光地）
 
-  // リクエスト内容のオプション{
-  let request = {
-    origin:      start,                          // 出発地点の緯度経度
-    destination: end,                            // 到着地点の緯度経度
-    travelMode: google.maps.TravelMode.DRIVING,  // 移動手段
-    waypoints: [                                // 経由地点
-      {location: new google.maps.LatLng(gon.waypoint.latitude, gon.waypoint.longitude) },
-    ]
-  };
-  // }リクエスト内容のオプション
+  // リクエスト内容のオプション(経由地を設定したか否かで分岐){
+  if (gon.waypoint == null) {
+    var request = {
+      origin     : start,                          // 出発地点
+      destination: end,                            // 到着地点
+      travelMode : google.maps.TravelMode.DRIVING, // 移動手段
+    };
+  }else{
+    var request = {
+      origin     : start,                          // 出発地点
+      destination: end,                            // 到着地点
+      travelMode : google.maps.TravelMode.DRIVING, // 移動手段
+      waypoints  : [                               // 経由地
+              { location: new google.maps.LatLng(gon.waypoint.latitude, gon.waypoint.longitude) },
+      ],
+    };
+  }
+  // }リクエスト内容のオプション(経由地を設定したか否かで分岐)
 
   // ルートの取得と取得結果の表示{
   directionsService.route(request, function(result, status) { //DirectionsServiceに対してroute(リクエスト内容のオプション,コールバック関数)メソッドを用いてリクエストを渡す。⇒DirectionsResultとDirectionsStatusが返ってくる。
@@ -98,5 +103,5 @@ function initMap(){
 
 }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvBTzLz4ir6lBqgs5K3iTui0O620tqU28&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['API_KEY']%>&callback=initMap" async defer></script>
 <!--/地図表示-->

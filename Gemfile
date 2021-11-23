@@ -73,4 +73,5 @@ gem 'pry-byebug'
 gem 'geocoder'
 gem 'gon'
 gem 'acts-as-taggable-on', '~> 6.0'
+gem 'dotenv-rails'
 # /追加のgem

@@ -34,14 +34,18 @@ class SpotsController < ApplicationController
   def show
     @spot   = Spot.find(params[:id])
     @result = Geocoder.search([@spot.latitude, @spot.longitude])
-    @spots  = Spot.near([@spot.latitude, @spot.longitude], 50, units: :km)
+    # 提案する経由地を取得：半径50km以内の観光地を最大6件取得し、選択した観光地自身は除外する＝最大5件表示
+    @spots  = Spot.near([@spot.latitude, @spot.longitude], 50, units: :km).limit(6).to_a.delete_if{|spot| spot.id == @spot.id}
   end
 
   def root
     @destination = Spot.find(params[:destination])
-    @waypoint    = Spot.find(params[:waypoint])
+    # 経由地を設定した場合としなかった場合で分岐
+    if params[:waypoint].empty? == false
+      @waypoint     = Spot.find(params[:waypoint])
+      gon.waypoint  = @waypoint
+    end
     gon.destination = @destination
-    gon.waypoint    = @waypoint
   end
 
 end
