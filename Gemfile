@@ -74,4 +74,9 @@ gem 'geocoder'
 gem 'gon'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'dotenv-rails'
+
+group :production do
+  gem 'mysql2'
+end
+
 # /追加のgem
