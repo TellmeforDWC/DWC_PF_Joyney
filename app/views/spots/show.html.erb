@@ -1,0 +1,47 @@
+<div class="container">
+  <div class ="row">
+    <div class="col-md-12 text-center mx-auto">
+      <h2>
+        あなたが選んだ目的地は " <%= @spot.spot_name %> " です。
+      </h2>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class ="row">
+    <div class="col-md-12 text-center mx-auto">
+      <%= attachment_image_tag @spot, :image, class: "image-large", fallback: "no_image.png" %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class ="row">
+    <div class="col-md-12 text-center mx-auto">
+      <h3>
+        <%= form_with url:spot_root_path, method: :GET, local:true do |f| %>
+          <%= "周辺にも観光地があります。立ち寄ってみませんか？" %>
+          <%= f.hidden_field :destination, :value => @spot.id %>
+          <%= f.hidden_field :waypoint,    :value => nil %>
+          <%= f.submit "⇒必要ありません" ,class: "btn btn-primary" %>
+        <% end %>
+      </h3>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class ="row">
+    <% @spots.each do |spot| %>
+      <div class="col-md-2 mx-auto text-center d-flex align-items-center">
+          <%= form_with url:spot_root_path, method: :GET, local:true do |f| %>
+            <%= attachment_image_tag spot, :image, class: "image-small",  fallback: "no_image.png" %>
+            <%= f.hidden_field :destination, :value => @spot.id %>
+            <%= f.hidden_field :waypoint,    :value => spot.id %>
+            <%= f.submit "ここに立ち寄る", class: "btn btn-primary" %>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

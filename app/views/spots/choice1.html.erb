@@ -1,0 +1,27 @@
+<div class="container">
+  <div class ="row">
+    <div class="col-md-12 text-center mx-auto">
+      <h2>まずはあなたの好みを聞かせてください。</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class ="row">
+
+    <div class="col-md-4 offset-md-2 mx-auto text-center">
+      <%= form_with url:choice2_spot_path, local:true do |f| %>
+        <%= f.hidden_field :choice1, :value => 0 %>
+        <%= f.submit "自然を感じるのが好き", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-4 offset-md-2 mx-auto text-center">
+      <%= form_with url:choice2_spot_path, local:true do |f| %>
+        <%= f.hidden_field :choice1, :value => 1 %>
+        <%= f.submit "文化に触れるのが好き", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

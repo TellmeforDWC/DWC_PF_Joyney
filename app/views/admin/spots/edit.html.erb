@@ -1,0 +1,105 @@
+<!--編集フォーム-->
+<%= form_with model: @spot, url: admin_spot_path(@spot.id), local:true do |f| %>
+  <p>観光地画像</p>
+  <%= f.attachment_field :image %>
+  <p>観光地名</p>
+  <%= f.text_field       :spot_name %>
+  <p>緯度</p>
+  <%= f.text_field       :latitude %>
+  <p>経度</p>
+  <%= f.text_field       :longitude %>
+  <p>タグ</p>
+  <%= f.text_field :tag_list, value: @spot.tag_list.join(',') %>
+
+  <%= f.submit "更新" %>
+<% end %>
+<!--/編集フォーム-->
+
+<!--地図表示-->
+<h2>gmap</h2>
+<div class="map-area">
+  <div id='map'></div>
+  <div id="sidebar"></div>
+</div>
+
+<style>
+.map-area {
+  display: flex;
+}
+
+#map{
+  flex-basis: 85rem;
+  height: 400px;
+  /*max-width: 70rem;*/
+  margin: 0.6em 0 0 auto;
+}
+
+#sidebar {
+  flex-basis: 25rem;
+  height: 400px;
+  max-width: 30rem;
+  box-sizing: border-box;
+  overflow: scroll;
+  font-size: 0.8em;
+  margin: 0;
+}
+
+</style>
+
+<script>
+function initMap(){
+
+  let latlng = new google.maps.LatLng(gon.spot.latitude, gon.spot.longitude); //緯度経度を指定
+
+  // 地図表示{
+  let marker;　//マーカーを設置
+
+  let obj = { //地図の表示オプション
+    center: latlng,
+    zoom  : 10
+  };
+
+
+  let map = new google.maps.Map(document.getElementById('map'), obj); //地図を設置
+
+  marker = new google.maps.Marker({ //マーカーの作成とオプション
+    position: latlng,
+    map     : map
+  });
+  // }地図表示
+
+  // 経路表示{
+
+  let directionsService  = new google.maps.DirectionsService();  //DirectionsService のオブジェクトを生成
+  let directionsRenderer = new google.maps.DirectionsRenderer(); //DirectionsRenderer のオブジェクトを生成
+
+  directionsRenderer.setMap(map); //directionsRenderer の結果を地図に表示
+  directionsRenderer.setPanel(document.getElementById("sidebar"));
+
+  let start = new google.maps.LatLng(43.068661, 141.350755);                    //出発点の位置（札幌駅）
+  let end   = new google.maps.LatLng(gon.spot.latitude, gon.spot.longitude);    //目的地の位置（選択した観光地）
+
+  // リクエスト内容のオプション{
+  let request = {
+    origin:      start,   // 出発地点の緯度経度
+    destination: end,     // 到着地点の緯度経度
+    travelMode: google.maps.TravelMode.DRIVING, // 移動手段
+  };
+  // }リクエスト内容のオプション
+
+  // ルートの取得と取得結果の表示{
+  directionsService.route(request, function(result, status) { //DirectionsServiceに対してroute(リクエスト内容のオプション,コールバック関数)メソッドを用いてリクエストを渡す。⇒DirectionsResultとDirectionsStatusが返ってくる。
+    if (status === 'OK') {
+      directionsRenderer.setDirections(result); //取得したルート（結果：result）をセット
+    }else{
+      alert("取得できませんでした：" + status);
+    }
+  });
+  // }ルートの取得と取得結果の表示
+
+  // }経路表示
+
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['API_KEY']%>&callback=initMap" async defer></script>
+<!--/地図表示-->

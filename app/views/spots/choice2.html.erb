@@ -1,0 +1,85 @@
+<div class="container">
+  <div class ="row">
+    <div class="col-md-12 text-center mx-auto">
+      <h2>それでは、あなたが旅に対して求めることを1つ教えてください。</h2>
+    </div>
+  </div>
+</div>
+
+<% if params[:choice1] == "0" %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mx-auto text-center">
+        <%= form_with url:spots_path, method: :GET, local:true do |f| %>
+          <%= f.hidden_field :choice1, :value => params[:choice1] %>
+          <%= f.hidden_field :choice2, :value => 0 %>
+          <%= f.submit "観たことのない景色を観てみたい", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mx-auto text-center">
+        <%= form_with url:spots_path, method: :GET, local:true do |f| %>
+          <%= f.hidden_field :choice1, :value => params[:choice1] %>
+          <%= f.hidden_field :choice2, :value => 1 %>
+          <%= f.submit "未踏の地を探検したい", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mx-auto text-center">
+        <%= form_with url:spots_path, method: :GET, local:true do |f| %>
+          <%= f.hidden_field :choice1, :value => params[:choice1] %>
+          <%= f.hidden_field :choice2, :value => 2 %>
+          <%= f.submit "いろいろな生き物と触れ合いたい", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<% elsif params[:choice1] == "1" %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mx-auto text-center">
+        <%= form_with url:spots_path, method: :GET, local:true do |f| %>
+          <%= f.hidden_field :choice1, :value => params[:choice1] %>
+          <%= f.hidden_field :choice2, :value => 0 %>
+          <%= f.submit "人類の歴史を学び、美しい芸術に触れたい", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mx-auto text-center">
+        <%= form_with url:spots_path, method: :GET, local:true do |f| %>
+          <%= f.hidden_field :choice1, :value => params[:choice1] %>
+          <%= f.hidden_field :choice2, :value => 1 %>
+          <%= f.submit "疲れた身体を休ませたい", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mx-auto text-center">
+        <%= form_with url:spots_path, method: :GET, local:true do |f| %>
+          <%= f.hidden_field :choice1, :value => params[:choice1] %>
+          <%= f.hidden_field :choice2, :value => 2 %>
+          <%= f.submit "旅の想い出を手に入れたい", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
