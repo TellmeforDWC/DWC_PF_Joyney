@@ -3,9 +3,6 @@
 <div class="container">
   <div class ="row">
     <div class="col-md-12">
-      <% flash.each do |message_type, message| %>
-        <%= message %>
-      <% end %>
       <%= form_with url: admin_spot_search_path, method: :get, local: true do |f| %>
         <%= f.text_field :keyword %>
         <%= f.collection_select :tag, @tags, :name, :name, prompt: "選択してください" %>
@@ -20,6 +17,7 @@
 <div class="container">
   <div class ="row">
     <div class="col-md-12 text-left">
+      <h3>検索結果</h3>
       <table class="table table-sm">
 
         <tr>
@@ -30,7 +28,7 @@
           <th></th>
         </tr>
 
-        <% @spots.each do |spot| %>
+        <% @spot.each do |spot| %>
         <tr>
           <td><%= attachment_image_tag spot, :image, class: "image-small", fallback: "no_image.png" %> </td>
           <td class="align-middle"><%= spot.spot_name %></td>
@@ -50,7 +48,7 @@
 <div class="container">
   <div class ="row">
     <div class="col-md-12 d-flex justify-content-center">
-      <%= paginate @spots %>
+      <%= paginate @spot %>
     </div>
   </div>
 </div>
