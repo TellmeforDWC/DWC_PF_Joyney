@@ -1,13 +1,18 @@
 <!--検索フォーム-->
-
 <div class="container">
   <div class ="row">
     <div class="col-md-12">
+
+      <!--エラーメッセージ表示-->
       <% flash.each do |message_type, message| %>
-        <%= message %>
+        <strong class="text-danger"><%= message %></strong>
       <% end %>
+      <!--/エラーメッセージ表示-->
+
       <%= form_with url: admin_spot_search_path, method: :get, local: true do |f| %>
+        <div>スポット名</div>
         <%= f.text_field :keyword %>
+        <div>タグ</div>
         <%= f.collection_select :tag, @tags, :name, :name, prompt: "選択してください" %>
         <%= f.submit "検索" %>
       <% end %>

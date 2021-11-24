@@ -25,14 +25,14 @@
 
 #map{
   flex-basis: 85rem;
-  height: 800px;
+  height: 500px;
   /*max-width: 70rem;*/
   margin: 0.6em 0 0 auto;
 }
 
 #sidebar {
   flex-basis: 25rem;
-  height: 800px;
+  height: 500px;
   max-width: 30rem;
   box-sizing: border-box;
   overflow: scroll;
@@ -105,3 +105,11 @@ function initMap(){
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['API_KEY']%>&callback=initMap" async defer></script>
 <!--/地図表示-->
+
+<div class="container">
+  <div class ="row">
+    <div class="col-md-12 text-center mx-auto mt-3">
+      <%= link_to "初めから選びなおす", choice1_spot_path, class: "btn btn-success" %>
+    </div>
+  </div>
+</div>

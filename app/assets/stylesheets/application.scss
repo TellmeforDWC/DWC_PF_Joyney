@@ -35,3 +35,20 @@
   width:  600px;
   object-fit: contain;
 }
+
+.header {
+  background-image: image-url("header.jpg");
+   background-size: cover;
+   background-position: 30% 36%;
+
+}
+
+.footer {
+  height: 50px;
+  width: 100%;
+  background-image: image-url("footer.jpg");
+  background-size: cover;
+  background-position: 30% 44%;
+  position: absolute;
+  bottom: 0;
+}

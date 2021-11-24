@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   get "spot/root"   => "spots#root",   as: "spot_root"
   resources :spots, :only => [:index, :show]
 
-  root to: 'spots#choice1'
+  root to: 'homes#top'
 
 end
