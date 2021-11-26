@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5 mb-5">
   <div class ="row">
     <div class="col-md-12 text-center mx-auto">
       <h2>
@@ -11,12 +11,12 @@
 
 <div class="container">
   <div class ="row">
-    <% @spot.each do |spot| %>
-      <div class="col-md-2 mx-auto">
-        <%= link_to spot_path(spot.id) do %>
-          <%= attachment_image_tag spot, :image, class: "image-middle",  fallback: "no_image.png" %>
+      <div class="col-md-12 display">
+        <% @spot.each do |spot| %>
+          <%= link_to spot_path(spot.id) do %>
+            <div class="mb-5"><%= attachment_image_tag spot, :image, class: "image-middle",  fallback: "no_image.png" %></div>
+          <% end %>
         <% end %>
       </div>
-    <% end %>
   </div>
 </div>

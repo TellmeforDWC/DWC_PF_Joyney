@@ -17,24 +17,30 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-@import url('https://fonts.googleapis.com/css2?family=Road+Rage&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&family=Road+Rage&display=swap');
 
 .image-small {
   height: 200px;
   width:  200px;
   object-fit: contain;
+  border-radius: 10px;
+  border: 5px double #bc8f8f;
 }
 
 .image-middle {
   height: 300px;
   width:  300px;
   object-fit: contain;
+  border-radius: 10px;
+  border: 5px double #bc8f8f;
 }
 
 .image-large {
   height: 600px;
   width:  600px;
   object-fit: contain;
+  border-radius: 10px;
+  border: 5px double #bc8f8f;
 }
 
 .header {
@@ -42,6 +48,71 @@
   background-size: cover;
   background-position: 30% 50%;
   font-family: 'Road Rage', cursive;
+}
+
+body {
+  font-family: 'Noto Serif JP', serif;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+}
+
+.link {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  font-size: 20px;
+  color: #a0522d;
+  background: #FFF;
+  border: double 3px #8b4513;
+  border-radius: 10px;
+}
+
+.question {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  background: #FFF;
+  border: double 3px #8b4513;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.question-small {
+  padding: 0.3em;
+  margin: 1em;
+  background: #FFF;
+  border: double 3px #8b4513;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.question-icon {
+  color: #a0522d;
+  font-size: 30px;
+}
+
+.question-text {
+  font-weight: bold;
+  font-size: 30px;
+  color: #a0522d;
+  font-family: 'Noto Serif JP', serif;
+}
+
+.question-text-small {
+  font-weight: bold;
+  font-size: 15px;
+  color: #a0522d;
+  font-family: 'Noto Serif JP', serif;
+  text-align: center
+}
+
+.display {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
 }
 
 .footer {
