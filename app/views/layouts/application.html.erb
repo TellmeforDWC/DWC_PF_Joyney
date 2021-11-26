@@ -16,24 +16,23 @@
   <body>
 
     <header class="header">
-      <div class="container m-0">
+      <div class="container m-0 pl-5">
         <div class ="row">
 
-          <div class="col-md-6 text-left">
+          <div class="col-md-5 text-left">
             <%= link_to root_path do %>
-              <h2>Joy-ney!</h2>
+              <p class="title m-0">Joy-ney!</p>
             <% end %>
-            <h4>~Enjoy your own journey~</h4>
+              <p class="title-flavor m-0">~Enjoy your own journey~</p>
           </div>
 
-          <div class="col-md-6 text-right">
+          <div class="col-md-7 text-center">
             <% if admin_signed_in? %>
-              <p><strong><%= "管理者ログイン中" %></strong></p>
-              <p>
-                <%= link_to "スポット登録", new_admin_spot_path, class: "btn btn-primary" %>
-                <%= link_to "スポット一覧", admin_spots_path, class: "btn btn-success" %>
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-danger" %>
-              </p>
+              <strong><span class="bg-light text-danger"><%= "管理者ログイン中" %></span></strong>
+              <%= link_to "スポット登録", new_admin_spot_path, class: "btn btn-primary" %>
+              <%= link_to "スポット一覧", admin_spots_path, class: "btn btn-success" %>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-danger" %>
+          </div>
             <% end %>
 
           </div>
@@ -44,13 +43,7 @@
     <%= yield %>
 
     <footer class="footer">
-      <div class="container">
-        <div class ="row">
-          <div class="col-md-12 text-center mx-auto">
-            <h4>©DMM WEB CAMP</h4>
-          </div>
-        </div>
-      </div>
+      <p class="footer-text text-center">©DMM WEB CAMP</p>
     </footer>
 
   </body>

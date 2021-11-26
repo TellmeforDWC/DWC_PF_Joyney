@@ -17,6 +17,7 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&display=swap');
 
 .image-small {
   height: 200px;
@@ -37,18 +38,36 @@
 }
 
 .header {
-  background-image: image-url("header.jpg");
-   background-size: cover;
-   background-position: 30% 36%;
-
+  background-image: image-url("header,footer2.jpg");
+  background-size: cover;
+  background-position: 30% 50%;
+  font-family: 'Road Rage', cursive;
 }
 
 .footer {
   height: 50px;
   width: 100%;
-  background-image: image-url("footer.jpg");
+  background-image: image-url("header,footer2.jpg");
   background-size: cover;
-  background-position: 30% 44%;
+  background-position: 30% 60%;
   position: absolute;
   bottom: 0;
+  font-family: 'Road Rage', cursive;
+}
+
+.title {
+  font-size: 90px;
+  line-height: 85%;
+  -webkit-text-stroke: 1px #f5deb3;
+  color: #cd853f;
+}
+
+.title-flavor {
+  font-size: 30px;
+  color: #f5deb3;
+}
+
+.footer-text {
+  font-size: 30px;
+  color: #fff;
 }
