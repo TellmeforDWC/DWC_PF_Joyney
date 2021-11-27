@@ -1,14 +1,8 @@
 <!--検索フォーム-->
+
 <div class="container">
   <div class ="row">
     <div class="col-md-12">
-
-      <!--エラーメッセージ表示-->
-      <% flash.each do |message_type, message| %>
-        <strong class="text-danger"><%= message %></strong>
-      <% end %>
-      <!--/エラーメッセージ表示-->
-
       <%= form_with url: admin_spot_search_path, method: :get, local: true do |f| %>
         <div>スポット名</div>
         <%= f.text_field :keyword %>
@@ -25,6 +19,7 @@
 <div class="container">
   <div class ="row">
     <div class="col-md-12 text-left">
+      <h3>検索結果</h3>
       <table class="table table-sm">
 
         <tr>
@@ -35,7 +30,7 @@
           <th></th>
         </tr>
 
-        <% @spots.each do |spot| %>
+        <% @spot.each do |spot| %>
         <tr>
           <td><%= attachment_image_tag spot, :image, class: "image-small", fallback: "no_image.png" %> </td>
           <td class="align-middle"><%= spot.spot_name %></td>
@@ -55,7 +50,7 @@
 <div class="container">
   <div class ="row">
     <div class="col-md-12 d-flex justify-content-center">
-      <%= paginate @spots %>
+      <%= paginate @spot %>
     </div>
   </div>
 </div>

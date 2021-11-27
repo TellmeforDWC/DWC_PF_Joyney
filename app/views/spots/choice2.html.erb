@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container mt-5">
   <div class ="row">
     <div class="col-md-12 text-center mx-auto">
-      <h2>それでは、あなたが旅に対して求めることを1つ教えてください。</h2>
+      <h2>Q2. それでは、あなたが旅に対して求めることを1つ教えてください。</h2>
     </div>
   </div>
 </div>
@@ -10,11 +10,14 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-4 mx-auto text-center">
+      <div class="col-md-10 mx-auto mt-5 text-center">
         <%= form_with url:spots_path, method: :GET, local:true do |f| %>
           <%= f.hidden_field :choice1, :value => params[:choice1] %>
           <%= f.hidden_field :choice2, :value => 0 %>
-          <%= f.submit "観たことのない景色を観てみたい", class: "btn btn-primary" %>
+          <%= f.button :type => "submit", class: "question" do %>
+            <span class="fas fa-globe-americas mb-0 question-icon"><span>
+            <span class="question-text">観たことのない景色を観てみたい</span>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -22,11 +25,14 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-4 mx-auto text-center">
+      <div class="col-md-10 mx-auto text-center">
         <%= form_with url:spots_path, method: :GET, local:true do |f| %>
           <%= f.hidden_field :choice1, :value => params[:choice1] %>
           <%= f.hidden_field :choice2, :value => 1 %>
-          <%= f.submit "未踏の地を探検したい", class: "btn btn-primary" %>
+          <%= f.button :type => "submit", class: "question" do %>
+            <span class="fas fa-hiking mb-0 question-icon"><span>
+            <span class="question-text">未踏の地を探検したい</span>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -34,11 +40,14 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-4 mx-auto text-center">
+      <div class="col-md-10 mx-auto text-center">
         <%= form_with url:spots_path, method: :GET, local:true do |f| %>
           <%= f.hidden_field :choice1, :value => params[:choice1] %>
           <%= f.hidden_field :choice2, :value => 2 %>
-          <%= f.submit "いろいろな生き物と触れ合いたい", class: "btn btn-primary" %>
+          <%= f.button :type => "submit", class: "question" do %>
+            <span class="fas fa-hippo mb-0 question-icon"><span>
+            <span class="question-text">いろいろな生き物と触れ合いたい</span>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -48,11 +57,14 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-4 mx-auto text-center">
+      <div class="col-md-10 mx-auto mt-5 text-center">
         <%= form_with url:spots_path, method: :GET, local:true do |f| %>
           <%= f.hidden_field :choice1, :value => params[:choice1] %>
           <%= f.hidden_field :choice2, :value => 0 %>
-          <%= f.submit "人類の歴史を学び、美しい芸術に触れたい", class: "btn btn-primary" %>
+          <%= f.button :type => "submit", class: "question" do %>
+            <span class="far fa-object-group mb-0 question-icon"><span>
+            <span class="question-text">人類の歴史を学び、美しい芸術に触れたい</span>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -60,11 +72,14 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-4 mx-auto text-center">
+      <div class="col-md-10 mx-auto text-center">
         <%= form_with url:spots_path, method: :GET, local:true do |f| %>
           <%= f.hidden_field :choice1, :value => params[:choice1] %>
           <%= f.hidden_field :choice2, :value => 1 %>
-          <%= f.submit "疲れた身体を休ませたい", class: "btn btn-primary" %>
+          <%= f.button :type => "submit", class: "question" do %>
+            <span class="fas fa-bath mb-0 question-icon"><span>
+            <span class="question-text">疲れた身体を休ませたい</span>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -72,11 +87,14 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-4 mx-auto text-center">
+      <div class="col-md-10 mx-auto text-center">
         <%= form_with url:spots_path, method: :GET, local:true do |f| %>
           <%= f.hidden_field :choice1, :value => params[:choice1] %>
           <%= f.hidden_field :choice2, :value => 2 %>
-          <%= f.submit "旅の想い出を手に入れたい", class: "btn btn-primary" %>
+          <%= f.button :type => "submit", class: "question" do %>
+            <span class="fas fa-gift mb-0 question-icon"><span>
+            <span class="question-text">旅の想い出を手に入れたい</span>
+          <% end %>
         <% end %>
       </div>
     </div>

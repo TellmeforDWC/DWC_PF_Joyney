@@ -1,27 +1,36 @@
-<div class="container">
+<div class="container mt-5">
   <div class ="row">
     <div class="col-md-12 text-center mx-auto">
-      <h2>まずはあなたの好みを聞かせてください。</h2>
+      <h2>Q1. まずはあなたの好みを聞かせてください。</h2>
     </div>
   </div>
 </div>
 
-<div class="container">
+<div class="container mt-5">
   <div class ="row">
-
-    <div class="col-md-4 offset-md-2 mx-auto text-center">
+    <div class="col-md-6 mx-auto text-center">
       <%= form_with url:choice2_spot_path, local:true do |f| %>
         <%= f.hidden_field :choice1, :value => 0 %>
-        <%= f.submit "自然を感じるのが好き", class: "btn btn-primary" %>
+        <%= f.button :type => "submit", class: "question" do %>
+            <span class="fas fa-tree mb-0 question-icon"><span>
+            <span class="question-text">自然を感じるのが好き</span>
+        <% end %>
       <% end %>
     </div>
-
-    <div class="col-md-4 offset-md-2 mx-auto text-center">
-      <%= form_with url:choice2_spot_path, local:true do |f| %>
-        <%= f.hidden_field :choice1, :value => 1 %>
-        <%= f.submit "文化に触れるのが好き", class: "btn btn-primary" %>
-      <% end %>
-    </div>
-
   </div>
 </div>
+
+<div class="container mt-5">
+  <div class ="row">
+    <div class="col-md-6 offset-md-2 mx-auto text-center">
+      <%= form_with url:choice2_spot_path, local:true do |f| %>
+        <%= f.hidden_field :choice1, :value => 1 %>
+        <%= f.button :type => "submit", class: "question" do %>
+            <span class="fab fa-fort-awesome mb-0 question-icon"><span>
+            <span class="question-text">文化に触れるのが好き</span>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+

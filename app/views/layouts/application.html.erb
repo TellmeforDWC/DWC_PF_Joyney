@@ -15,20 +15,36 @@
 
   <body>
 
-    <header>
-      <div class="container m-0">
+    <header class="header">
+      <div class="container m-0 pl-5">
         <div class ="row">
-          <div class="col-md-12 text-left">
-            <span>
-              <h2>Joy-ney!</h2>
-              <h4>~Enjoy your own journey~</h4>
-            </span>
+
+          <div class="col-md-5 text-left">
+            <%= link_to root_path do %>
+              <p class="title m-0">Joy-ney!</p>
+            <% end %>
+              <p class="title-flavor m-0">~Enjoy your own journey~</p>
+          </div>
+
+          <div class="col-md-7 text-center">
+            <% if admin_signed_in? %>
+              <strong><span class="bg-light text-danger"><%= "管理者ログイン中" %></span></strong>
+              <%= link_to "スポット登録", new_admin_spot_path, class: "btn btn-primary" %>
+              <%= link_to "スポット一覧", admin_spots_path, class: "btn btn-success" %>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-danger" %>
+          </div>
+            <% end %>
+
           </div>
         </div>
       </div>
     </header>
 
     <%= yield %>
+
+    <footer class="footer">
+      <p class="footer-text text-center">©DMM WEB CAMP</p>
+    </footer>
 
   </body>
 </html>

@@ -1,8 +1,12 @@
-<div class="container">
+<div class="container mt-5 mb-4">
   <div class ="row">
     <div class="col-md-12 text-center mx-auto">
       <h2>
-        あなたが選んだ目的地は " <%= @spot.spot_name %> " です。
+        あなたが選んだ目的地は "
+        <%= link_to "#{@spot.link}", target: :_blank, rel: "noopener noreferrer" do %>
+          <%= "#{@spot.spot_name}" %>
+        <% end %>
+         " です。
       </h2>
     </div>
   </div>
@@ -10,7 +14,7 @@
 
 <div class="container">
   <div class ="row">
-    <div class="col-md-12 text-center mx-auto">
+    <div class="col-md-12 text-center mx-auto mb-3">
       <%= attachment_image_tag @spot, :image, class: "image-large", fallback: "no_image.png" %>
     </div>
   </div>
@@ -24,7 +28,10 @@
           <%= "周辺にも観光地があります。立ち寄ってみませんか？" %>
           <%= f.hidden_field :destination, :value => @spot.id %>
           <%= f.hidden_field :waypoint,    :value => nil %>
-          <%= f.submit "⇒必要ありません" ,class: "btn btn-primary" %>
+          <%= f.button :type => "submit", class: "question-small" do %>
+            <p class="question-text-small m-0">必要ありません</p>
+          <% end %>
+
         <% end %>
       </h3>
     </div>
@@ -34,12 +41,14 @@
 <div class="container">
   <div class ="row">
     <% @spots.each do |spot| %>
-      <div class="col-md-2 mx-auto text-center d-flex align-items-center">
+      <div class="col-md-2 mx-auto mb-5 text-center d-flex align-items-center">
           <%= form_with url:spot_root_path, method: :GET, local:true do |f| %>
             <%= attachment_image_tag spot, :image, class: "image-small",  fallback: "no_image.png" %>
             <%= f.hidden_field :destination, :value => @spot.id %>
             <%= f.hidden_field :waypoint,    :value => spot.id %>
-            <%= f.submit "ここに立ち寄る", class: "btn btn-primary" %>
+            <%= f.button :type => "submit", class: "question-small" do %>
+              <p class="question-text-small m-0">ここに立ち寄る</p>
+            <% end %>
           <% end %>
       </div>
     <% end %>
