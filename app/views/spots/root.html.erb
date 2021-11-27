@@ -1,10 +1,26 @@
-<div class="container">
+<div class="container mt-3">
   <div class ="row">
     <div class="col-md-12 text-center mx-auto">
       <h2>
-        あなたの旅程が決まりました！<br>
-        Enjoy Your Own Journey !
+        あなたの旅程が決まりました！Enjoy Your Own Journey !
       </h2>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class ="row">
+    <div class="col-md-12 text-center mx-auto">
+      <h4>
+        <%= link_to "#{@destination.link}", target: :_blank, rel: "noopener noreferrer" do %>
+          <i class="fas fa-link"></i><%= "#{@destination.spot_name}" %>
+        <% end %>
+        <% if params[:waypoint].empty? == false %>
+          <%= link_to "#{@waypoint.link}", target: :_blank, rel: "noopener noreferrer" do %>
+            <i class="fas fa-link"></i><%= "#{@waypoint.spot_name}" %>
+          <% end %>
+        <% end %>
+      </h4>
     </div>
   </div>
 </div>
@@ -106,10 +122,10 @@ function initMap(){
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['API_KEY']%>&callback=initMap" async defer></script>
 <!--/地図表示-->
 
-<div class="container">
+<div class="container mx-auto mt-4 mb-3">
   <div class ="row">
-    <div class="col-md-12 text-center mx-auto mt-3">
-      <%= link_to "初めから選びなおす", choice1_spot_path, class: "btn btn-success" %>
+    <div class="col-md-12 text-center mx-auto">
+      <%= link_to "初めから選びなおす", choice1_spot_path, class: "link" %>
     </div>
   </div>
 </div>

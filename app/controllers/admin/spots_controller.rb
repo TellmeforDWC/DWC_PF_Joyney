@@ -63,7 +63,7 @@ class Admin::SpotsController < ApplicationController
   private
 
   def spot_params
-    params.require(:spot).permit(:spot_name, :image, :longitude, :latitude, :tag_list)
+    params.require(:spot).permit(:spot_name, :image, :longitude, :latitude, :tag_list, :link)
   end
 
   def admin_authentication

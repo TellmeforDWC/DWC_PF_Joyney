@@ -2,7 +2,11 @@
   <div class ="row">
     <div class="col-md-12 text-center mx-auto">
       <h2>
-        あなたが選んだ目的地は " <%= @spot.spot_name %> " です。
+        あなたが選んだ目的地は "
+        <%= link_to "#{@spot.link}", target: :_blank, rel: "noopener noreferrer" do %>
+          <%= "#{@spot.spot_name}" %>
+        <% end %>
+         " です。
       </h2>
     </div>
   </div>
