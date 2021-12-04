@@ -13,8 +13,15 @@
   <div class ="row">
       <div class="col-md-12 display">
         <% @spot.each do |spot| %>
-          <%= link_to spot_path(spot.id) do %>
-            <div class="mb-5"><%= attachment_image_tag spot, :image, class: "image-middle",  fallback: "no_image.png" %></div>
+          <%= form_with model: spot, url: similar_spot_path, method: :GET, local:true do |f| %>
+            <!--simiralアクションに選択肢の情報を送る-->
+            <%= f.hidden_field :select,  :value => spot.id %>
+            <%= f.hidden_field :choice1, :value => params[:choice1] %>
+            <%= f.hidden_field :choice2, :value => params[:choice2] %>
+            <!--/simiralアクションに選択肢の情報を送る-->
+            <%= f.button :type => "submit", style: "border-style: none; background-color: transparent;" do %>
+              <div class="mb-5"><%= attachment_image_tag spot, :image, class: "image-middle",  fallback: "no_image.png" %></div>
+            <% end %>
           <% end %>
         <% end %>
       </div>
