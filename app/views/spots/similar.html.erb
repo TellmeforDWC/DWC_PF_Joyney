@@ -1,0 +1,40 @@
+<div class="container mt-2">
+  <div class ="row">
+    <div class="col-md-12 text-center mx-auto">
+      <h2>
+        あなたは "
+        <%= link_to "#{@spot.link}", target: :_blank, rel: "noopener noreferrer" do %>
+          <%= "#{@spot.spot_name}" %>
+        <% end %>
+         " を選びました。
+            <div class="mt-3"><%= attachment_image_tag @spot, :image, class: "image-small",  fallback: "no_image.png" %></div>
+      </h2>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3 mb-5">
+  <div class ="row">
+    <div class="col-md-12 text-center mx-auto">
+      <h2>
+        似たような観光地が他にもあります。<br>
+        ↓ 目的地を変える場合は、改めて選びましょう。↓
+        <%= link_to "変えません",spot_path(@spot.id), class: "question-small question-text-small m-0" %>
+      </h2>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class ="row">
+    <div class="col-md-12 display">
+
+      <% @similar_spots.each do |spot| %>
+        <%= link_to spot_path(spot) do %>
+          <div class="mb-5"><%= attachment_image_tag spot, :image, class: "image-small",  fallback: "no_image.png" %></div>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
