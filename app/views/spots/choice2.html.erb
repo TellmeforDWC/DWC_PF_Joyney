@@ -41,7 +41,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-10 mx-auto text-center">
-        <%= form_with url:spots_path, method: :GET, local:true do |f| %>
+        <%= form_with url:spots_path, method: :GET, data: {"turbolinks" => false}, local:true do |f| %>
           <%= f.hidden_field :choice1, :value => params[:choice1] %>
           <%= f.hidden_field :choice2, :value => 2 %>
           <%= f.button :type => "submit", class: "question" do %>
