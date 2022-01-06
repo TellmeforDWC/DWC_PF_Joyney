@@ -19,3 +19,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+window.onload = function() {
+  const spinner = document.getElementById('loader');
+  spinner.classList.add('loaded');
+}
+
