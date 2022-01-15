@@ -20,7 +20,7 @@
 //= require turbolinks
 //= require_tree .
 
-window.onload = function() {
+window.ready = function() {
   const spinner = document.getElementById('loader');
   spinner.classList.add('loaded');
 }

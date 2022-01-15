@@ -151,11 +151,6 @@ body {
   color: #fff;
 }
 
-// #content {
-  // position: relative;
-  // margin-top: 30px;
-// }
-
 // 以下ローディングのアニメーション
 
 @keyframes fadeOut { //アニメーションの動きの設定
@@ -170,8 +165,8 @@ body {
 }
 
 #loader { //読み込み中の背景
-    width: 100%;
-    height: 100%;
+    width: 10px;
+    height: 10%;
     background-color: ffffff;
     z-index: 1;
 }
