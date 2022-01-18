@@ -20,8 +20,13 @@
 //= require turbolinks
 //= require_tree .
 
-window.ready = function() {
+window.onclick = function() {
   const spinner = document.getElementById('loader');
   spinner.classList.add('loaded');
+}
+
+window.onclick = function() {
+  const spinner = document.getElementById('spot_images');
+  spinner.classList.add('waiting');
 }
 
