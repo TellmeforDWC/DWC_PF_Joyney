@@ -164,18 +164,31 @@ body {
     }
 }
 
-#loader { //読み込み中の背景
+#spot_images {
+
+}
+
+#spot_images.waiting {
+  position: relative;
+  filter: opacity(0.5);
+  z-index: -1;
+
+}
+
+#loader.loaded { //読み込み中の背景
     width: 10px;
     height: 10%;
     background-color: ffffff;
     z-index: 1;
+    display: contents;
 }
 
-#loader.loaded { //読み込み完了後の背景
+#loader { //読み込み完了後の背景
     width: 0%;
     height: 0%;
     margin: 0;
-    animation: fadeOut 3s forwards;
+    display: none;
+    // animation: fadeOut 3s forwards;
     z-index: -1;
 }
 
