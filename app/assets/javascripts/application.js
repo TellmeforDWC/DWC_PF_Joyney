@@ -21,12 +21,9 @@
 //= require_tree .
 
 window.onclick = function() {
+  const view = document.getElementById('view_field');
   const spinner = document.getElementById('loader');
-  spinner.classList.add('loaded');
-}
-
-window.onclick = function() {
-  const spinner = document.getElementById('spot_images');
-  spinner.classList.add('waiting');
+  view.classList.add("waiting");
+  spinner.classList.add("loaded");
 }
 
