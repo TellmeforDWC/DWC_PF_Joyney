@@ -153,49 +153,47 @@ body {
 
 // 以下ローディングのアニメーション
 
-@keyframes fadeOut { //アニメーションの動きの設定
-    from {
-        opacity: 1;
-    }
-    to {
-        display: none;
-        opacity: 0;
-        z-index: -1;
-    }
-}
-
+// 観光地画像クリック前後のアクション→
+//index.html画面（ギミック無し）
 #spot_images {
 
 }
 
-#spot_images.waiting {
+//index.htmlのクリック前画面（ギミック無し）
+#view_field {
+
+}
+
+// index.htmlのクリック後画面（配置を固定し、色を薄くする）
+#view_field.waiting {
   position: relative;
-  filter: opacity(0.5);
+  filter: opacity(0.3);
   z-index: -1;
 
 }
 
-#loader.loaded { //読み込み中の背景
-    width: 10px;
-    height: 10%;
-    background-color: ffffff;
-    z-index: 1;
-    display: contents;
+// クリック前のローダー
+#loader {
+    visibility: hidden;
+    width: 0%;
+    height: 0px;
 }
 
-#loader { //読み込み完了後の背景
-    width: 0%;
-    height: 0%;
-    margin: 0;
-    display: none;
-    // animation: fadeOut 3s forwards;
-    z-index: -1;
+// クリック後のローダー
+#loader.loaded {
+    width: 100%;
+    visibility: visible;
+    z-index: 1;
+    position: relative;
+    top: 50vh;
 }
+
+// ←観光地画像クリック前後のアクション
 
 //「SpinKit」から拝借したアニメーションのCSS→
 
 .sk-fading-circle {
-  margin: 100px auto;
+  margin: 0px auto;
   width: 40px;
   height: 40px;
   position: relative;
