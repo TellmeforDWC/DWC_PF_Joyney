@@ -41,6 +41,16 @@
   object-fit: contain;
   border-radius: 10px;
   border: 5px double #bc8f8f;
+  transform:scale(2.0, 2.0)
+}
+
+.image-large.mouseover {
+  height: 600px;
+  width:  600px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 5px double #bc8f8f;
+  transform:scale(2.0, 2.0)
 }
 
 .header {
