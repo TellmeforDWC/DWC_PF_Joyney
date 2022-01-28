@@ -27,12 +27,36 @@
   border: 5px double #bc8f8f;
 }
 
-.image-middle {
+@keyframes image-expanding {
+  from {
+    height: 300px;
+    width:  300px;
+  }
+
+  to {
+    height: 400px;
+    width:  400px;
+  }
+}
+
+
+.image_middle {
   height: 300px;
   width:  300px;
   object-fit: contain;
   border-radius: 10px;
   border: 5px double #bc8f8f;
+}
+
+.image_middle.expanding {
+  animation-name: image-expanding;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+.image_middle.expanding.shrinking {
+  animation-direction: reverse;
 }
 
 .image-large {
@@ -41,17 +65,8 @@
   object-fit: contain;
   border-radius: 10px;
   border: 5px double #bc8f8f;
-  transform:scale(2.0, 2.0)
 }
 
-.image-large.mouseover {
-  height: 600px;
-  width:  600px;
-  object-fit: contain;
-  border-radius: 10px;
-  border: 5px double #bc8f8f;
-  transform:scale(2.0, 2.0)
-}
 
 .header {
   background-image: image-url("header,footer2.jpg");
