@@ -27,3 +27,16 @@ window.onclick = function() {
   spinner.classList.add("loaded");
 }
 
+function image_size_change() {
+  const image = document.getElementsByClassName("image_middle");
+
+  switch(image) {
+    case image.mouseover:
+      image.classList.add("expanding");
+      break
+
+    case image.mouseout:
+      image.classList.add("shrinking");
+      break
+  }
+}
