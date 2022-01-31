@@ -55,7 +55,11 @@
   animation-fill-mode: forwards;
 }
 
-.image_middle.expanding.shrinking {
+.image_middle.shrinking {
+  animation-name: image-expanding;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
   animation-direction: reverse;
 }
 
