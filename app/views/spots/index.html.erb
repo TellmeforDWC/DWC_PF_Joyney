@@ -44,7 +44,7 @@
             <%= f.hidden_field :choice2, :value => params[:choice2] %>
             <!--/simiralアクションに選択肢の情報を送る-->
             <%= f.button :type => "submit", style: "border-style: none; background-color: transparent;" do %>
-              <div class="mb-5"><%= attachment_image_tag spot, :image, class: "image_middle", fallback: "no_image.png" %></div>
+              <div class="mb-5"><%= attachment_image_tag spot, :image, class: "image_middle", id: "images", fallback: "no_image.png" %></div>
             <% end %>
           <% end %>
         <% end %>
@@ -53,3 +53,23 @@
 </div>
 </div>
 </div>
+
+<script>
+
+const image = document.getElementById("images");
+
+function mouseOverEvent() {
+  image.classList.add("expanding");
+  console.log("mouseOverEvent")
+};
+
+function mouseOutEvent() {
+  image.classList.add("shrinking");
+  console.log("mouseOutEvent")
+};
+
+image.addEventListener("mouseover", mouseOverEvent);
+
+image.addEventListener("mouseout", mouseOutEvent);
+
+</script>
