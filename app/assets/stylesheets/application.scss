@@ -39,6 +39,18 @@
   }
 }
 
+@keyframes image-shrinking {
+  from {
+    height: 400px;
+    width:  400px;
+  }
+
+  to {
+    height: 300px;
+    width:  300px;
+  }
+}
+
 
 .image_middle {
   height: 300px;
@@ -56,11 +68,10 @@
 }
 
 .image_middle.shrinking {
-  animation-name: image-expanding;
+  animation-name: image-shrinking;
   animation-duration: 0.5s;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
-  animation-direction: reverse;
 }
 
 .image-large {
