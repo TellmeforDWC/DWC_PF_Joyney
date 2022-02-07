@@ -65,8 +65,8 @@ class SpotsController < ApplicationController
     @spots.each do |spots|
       if Vision.get_image_data(spots.image).any?{ |spot| @tag.include? spot } == true
         Vision.get_image_data(spots.image)
-        similar_spot  = Spot.where(id: spots.id)
-        @similar_spot = @similar_spot.push(similar_spot)
+        candidate_site = Spot.where(id: spots.id)
+        @similar_spot  = @similar_spot.push(candidate_site)
       end
     end
      # /@spotsのデータをGoogle Vision AI API に掛けて、@spotに格納した観光地と類似の観光地を取得する。
